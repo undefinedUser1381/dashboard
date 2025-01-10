@@ -1,6 +1,6 @@
 import { RouteObject } from "react-router-dom"
 import Comments from "./pages/Comments"
-import Login from "./pages/Login"
+import Loginpage from "./pages/Loginpage"
 import Dashboard from "./pages/Dashboard"
 import Messages from "./pages/Messages"
 import Tables from "./pages/Tables"
@@ -14,7 +14,7 @@ const routes : RouteObject[] = [
     { path : "/messages" , element : <Messages />},
     { path : "/tables" , element : <Tables />},
     { path : "/tasks" , element : <Tasks />},
-    { path : "/login" , element : <Login />}
+    { path : "/login" , element : <Loginpage />}
 ]
 
 export default routes
