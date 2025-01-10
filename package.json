@@ -1,21 +1,29 @@
 {
+  "homepage" : "https://undefinedUser1381.github.io/dashboard/",
   "name": "dashboard",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.10.0",
     "@nextui-org/react": "^2.6.11",
     "framer-motion": "^11.16.1",
+    "gh-pages": "^6.3.0",
     "i18next": "^24.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.1.1"
+    "react-hook-form": "^7.54.2",
+    "react-i18next": "^15.4.0",
+    "react-router-dom": "^7.1.1",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
