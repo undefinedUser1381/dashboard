@@ -28,13 +28,17 @@ const submitUser : SubmitHandler<loginInterface> = (data) => {
 
   return (
     <div className="bg-image flex items-center justify-center sm:py-6 sm:px-6 w-full">
-       <form onSubmit={handleSubmit(submitUser)} className="bg-white rounded-xl shadow-xl w-[100%] sm:w-[25rem] z-20 h-auto pb-4">
+       <form onSubmit={handleSubmit(submitUser)} className="bg-white rounded-xl shadow-xl w-[90%] sm:w-[25rem] z-20 h-auto pb-4">
           <h3 className="text-center pt-12 font-bold text-[2rem]">{t("Sign In")}</h3>
           <div className="flex flex-col w-full gap-8 px-3 mt-12 items-center">
-           <Input {...register("userName",{ required : true , minLength : 3 , maxLength : 10 })} label="Username" size="sm" className="shadow-lg rounded-lg w-[17rem]" type="username" />
-           {errors.userName && <span className="text-white bg-red-500 w-auto px-2 py-1 rounded-lg">{errors.userName.message}</span>}
-           <Input {...register("email",{ required : true , minLength : 3 , maxLength : 15 })} label="Email" size="sm" className="shadow-lg rounded-lg w-[17rem]" type="email" />
-           {errors.email && <span className="text-white bg-red-500 w-auto px-2 py-1 rounded-lg">{errors.email.message}</span>}
+          <div className="flex flex-col items-center gap-5 w-[80%]">
+           <Input {...register("userName")} label="Username" size="sm" className="shadow-lg rounded-lg" type="username" />
+           {errors.userName && <span className="text-white bg-red-500 w-full px-2 py-1 rounded-lg">{errors.userName.message}</span>}
+          </div>
+          <div className="flex flex-col items-center gap-5 w-[80%]">
+           <Input {...register("email")} label="Email" size="sm" className="shadow-lg rounded-lg" type="email" />
+           {errors.email && <span className="text-white bg-red-500 w-full px-2 py-1 rounded-lg">{errors.email.message}</span>}
+          </div>
            <Button type="submit" color="secondary" className="w-[10rem] p-7 mt-6 shadow-lg font-bold shadow-purple-500 rounded-[5rem]">SIGN IN</Button>
            <div className="mt-12 w-full flex items-center flex-col gap-3">
             <Avatar isBordered color="secondary" src={avatarImage} />
