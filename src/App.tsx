@@ -4,9 +4,9 @@ function App() {
   const router = useRoutes(routes);
 
   return (
-    <>
+    <div className="dark">
       {router}
-    </>
+    </div>
   );
 }
 
