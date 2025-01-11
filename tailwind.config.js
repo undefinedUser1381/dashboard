@@ -8,8 +8,24 @@ export default {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+  	extend: {
+  		colors: {
+  			'primary': '#1C2434',
+  			'secondary': '#8A99AF'
+  		},
+  		borderRadius: {
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		}
+  	}
   },
-  darkMode: "class",
-  plugins: [nextui()],
+  darkMode: ["class", "class"],
+  plugins: [nextui(),
+    function ({ addVariant }) {
+      addVariant("child", "& > *");
+      addVariant("child-hover", "& > *:hover");
+    },
+      require("tailwindcss-animate")
+],
 }
