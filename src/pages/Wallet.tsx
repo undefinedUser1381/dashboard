@@ -1,6 +1,6 @@
 function Wallet() {
   return (
-    <div>Wallet</div>
+    <div>sdgsgsfsssssssssssssss</div>
   )
 }
 
