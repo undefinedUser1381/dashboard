@@ -11,7 +11,8 @@ export default {
   	extend: {
   		colors: {
   			'primary': '#1C2434',
-  			'secondary': '#8A99AF'
+  			'secondary': '#8A99AF',
+        'dark' : '#24303F',
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -20,7 +21,7 @@ export default {
   		}
   	}
   },
-  darkMode: ["class", "class"],
+  darkMode: ["class"],
   plugins: [nextui(),
     function ({ addVariant }) {
       addVariant("child", "& > *");
