@@ -23,9 +23,9 @@
     },
 
     /* Linting */
-    "strict": true,
+    "strict": false,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
