@@ -1,13 +1,20 @@
 import { NavLink } from "react-router-dom";
 import sideBarLogo from "../../assets/images/sidebarlogo/logo.svg";
+import { useSelector , useDispatch} from "react-redux";
+import { RootState , AppDispatch} from "@/stores/store";
+import { closeSideBar } from "@/stores/features/sidebar";
 
 function SideBar() {
+
+  const dispatch : AppDispatch = useDispatch()
+  const isOpen = useSelector((state : RootState) => state.sidebar.isOpen)
+
   return (
-    <aside className='w-[15rem] dark:bg-[#24303F] bg-primary hidden lg:flex transition-all fixed top-0 bottom-0 left-0 overflow-hidden h-[100vh]'>
+    <aside className={`w-[15rem] dark:bg-[#24303F] bg-primary hidden lg:flex transition-all z-20 fixed top-0 bottom-0 left-0 overflow-hidden h-[100vh]`}>
       <div className="pt-6 pl-4 h-full pr-5">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center gap-4 justify-between">
           <img src={sideBarLogo} alt="" />
-          <div className="cursor-pointer">
+          <div onClick={() => dispatch(closeSideBar())} className="cursor-pointer">
            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 block lg:hidden font-bold text-gray-500">
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
           </svg>
