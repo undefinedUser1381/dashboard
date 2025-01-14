@@ -18,7 +18,7 @@ const { t } = useTranslation()
     handleSubmit , 
     register ,
     formState: { errors },
- } = useForm<loginInterface>({
+ } = useForm({
     resolver: yupResolver(loginSchema)
  })
 
