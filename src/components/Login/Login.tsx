@@ -39,9 +39,9 @@ const submitUser : SubmitHandler<loginInterface> = (data) => {
            <Input {...register("email")} label="Email" size="sm" className="shadow-lg rounded-lg" type="email" />
            {errors.email && <span className="text-white bg-red-500 w-full px-2 py-1 rounded-lg">{errors.email.message}</span>}
           </div>
-           <Button type="submit" color="secondary" className="w-[10rem] p-7 mt-6 shadow-lg font-bold shadow-purple-500 rounded-[5rem]">SIGN IN</Button>
+           <Button type="submit" className="w-[10rem] text-white p-7 bg-purple-500 mt-6 shadow-lg font-bold shadow-purple-500 rounded-[5rem]">SIGN IN</Button>
            <div className="mt-12 w-full flex items-center flex-col gap-3">
-            <Avatar isBordered color="secondary" src={avatarImage} />
+            <Avatar isBordered color="secondary" className="dark:border-purple-500" src={avatarImage} />
             <p className="font-semibold">welcome back !!</p>
            </div>
          </div>
