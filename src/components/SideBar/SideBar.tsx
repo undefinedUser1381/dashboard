@@ -11,7 +11,7 @@ import { MdOutlineTableRows } from "react-icons/md";
 function SideBar() {
   return (
     <div>
-     <aside className='w-[15rem] dark:bg-[#24303F] bg-primary hidden lg:flex transition-all z-20 fixed top-0 bottom-0 left-0 overflow-hidden h-[100vh]'>
+     <aside className='w-[15rem] dark:bg-[#24303F] pr-0 bg-primary hidden lg:flex transition-all z-20 fixed top-0 bottom-0 left-0 overflow-hidden h-[100vh]'>
       <div className="pt-6 pl-4 h-full pr-5">
         <div className="flex items-center gap-4 justify-between">
           <img src={sideBarLogo} className="w-[10rem] h-[3rem]" alt="" />
@@ -21,15 +21,15 @@ function SideBar() {
           </svg>
          </div>
         </div>
-        <div className="mt-16">
+        <div className="mt-16 w-[13rem]">
           <h4 className="text-secondary font-bold text-[0.9rem]">MENU</h4>
-          <div className="flex child:text-[0.9rem] child:rounded-lg child:text-[#DEE4EE] child:font-medium child:w-full child:transition-all child:p-3 child-hover:bg-[#333A48] flex-col gap-2 mt-3">
+          <div className="flex child:text-[0.9rem] child:rounded-lg child:text-[#DEE4EE] child:font-medium child:w-full child:transition-all child:px-4 child:py-3 child-hover:bg-[#333A48] flex-col gap-2 mt-3">
            <SideBarLink title="Dashboard" path="/" className={"flex items-center justify-start gap-3"} icon={<CiGrid41 className="w-6 h-6 font-bold"/>} />
-           <SideBarLink icon={<CiUser className="w-6 h-6 font-bold"/>} path="profile" title="Profile" className={"flex items-center justify-start gap-3"}/>
-           <SideBarLink icon={<LuListTodo className="w-6 h-6 font-bold"/>} path="tasks" className={"flex items-center justify-start gap-3"} title="Tasks"/>
-           <SideBarLink icon={<BiSolidWalletAlt className="w-6 h-6 font-bold"/>} title="Wallet" path="wallet" className={"flex items-center justify-start gap-3"}/>
-           <SideBarLink className="flex items-center justify-start gap-3" path="messages" title="Messages" icon={<TiMessages className="font-bold w-6 h-6" />}/>
-           <SideBarLink icon={<MdOutlineTableRows className="font-bold w-6 h-6"/>} path="tables" title="Tables" className="flex items-center justify-start gap-3"/>
+           <SideBarLink icon={<CiUser className="w-6 h-6 font-bold"/>} path="/profile" title="Profile" className={"flex items-center justify-start gap-3"}/>
+           <SideBarLink icon={<LuListTodo className="w-6 h-6 font-bold"/>} path="/tasks" className={"flex items-center justify-start gap-3"} title="Tasks"/>
+           <SideBarLink icon={<BiSolidWalletAlt className="w-6 h-6 font-bold"/>} title="Wallet" path="/wallet" className={"flex items-center justify-start gap-3"}/>
+           <SideBarLink className="flex items-center justify-start gap-3" path="/messages" title="Messages" icon={<TiMessages className="font-bold w-6 h-6" />}/>
+           <SideBarLink icon={<MdOutlineTableRows className="font-bold w-6 h-6"/>} path="/tables" title="Tables" className="flex items-center justify-start gap-3"/>
           </div>
          </div>
          <div className="px-3 hover:bg-red-500 hover:text-primary rounded-lg py-3 cursor-pointer transition-all pr-5 text-red-400 flex items-start gap-3 mt-10">
