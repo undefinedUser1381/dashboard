@@ -1,6 +1,8 @@
+import Task from "@/components/Tasks/Task"
+
 function Tasks() {
   return (
-    <div>Tasks</div>
+    <><Task /></>
   )
 }
 
