@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import sideBarLogo from "../../../assets/images/sidebarlogo/logo.svg";
 import { useSelector , useDispatch} from "react-redux";
 import { RootState , AppDispatch} from "@/stores/store";
@@ -10,11 +9,19 @@ import { LuListTodo } from "react-icons/lu";
 import { BiSolidWalletAlt } from "react-icons/bi";
 import { TiMessages } from "react-icons/ti";
 import { MdOutlineTableRows } from "react-icons/md";
+import { useEffect } from "react";
 
 function MobileSidebar() {
 
     const dispatch : AppDispatch = useDispatch();
-    const isOpen = useSelector((state : RootState) => state.sidebar.isOpen)
+    let isOpen = useSelector((state : RootState) => state.sidebar.isOpen)
+
+    // Close sidebar for first render in each page
+    useEffect(() => {
+      if(isOpen){
+        dispatch(closeSideBar())
+      }
+    },[])
 
   return (
     <aside className={`w-[15rem] dark:bg-[#24303F] bg-primary transition-all z-20 fixed top-0 bottom-0 ${isOpen ? "left-0" : "left-[-25rem]"} left-0 overflow-hidden h-[100vh]`}>
