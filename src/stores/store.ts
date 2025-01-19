@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import sidebarReducer from "./features/sidebar"
 import themeReducer from "./features/theme"
+import taskReducer from "./features/taskmodal"
 
 const store = configureStore({
     reducer : {
         sidebar : sidebarReducer,
-        theme : themeReducer
+        theme : themeReducer,
+        taskModal : taskReducer
     }
 })
 
