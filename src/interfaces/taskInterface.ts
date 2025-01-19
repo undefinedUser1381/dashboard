@@ -1,7 +1,6 @@
 interface TaskInterface {
-    id : string
-    isComplete : boolean
-    title : string
+    isOpenModal : boolean
+    tasksList : []
 }
 
 export type{ TaskInterface }
