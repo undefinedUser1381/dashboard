@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "@heroui/button": "^2.2.9",
+    "@heroui/input": "^2.4.10",
+    "@heroui/modal": "^2.2.8",
     "@hookform/resolvers": "^3.10.0",
     "@nextui-org/react": "^2.6.11",
     "@radix-ui/react-slot": "^1.1.1",
