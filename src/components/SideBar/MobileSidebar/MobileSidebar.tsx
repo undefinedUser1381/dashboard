@@ -23,6 +23,8 @@ function MobileSidebar() {
       }
     },[])
 
+    // Create array for all links
+
   return (
     <aside className={`w-[15rem] dark:bg-[#24303F] bg-primary transition-all z-20 fixed top-0 bottom-0 ${isOpen ? "left-0" : "left-[-25rem]"} left-0 overflow-hidden h-[100vh]`}>
     <div className="pt-6 pl-4 h-full pr-5">
