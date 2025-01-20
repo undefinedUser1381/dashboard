@@ -4,11 +4,22 @@ import SideBarLink from "./SideBarLink/SideBarLink";
 import { CiGrid41 } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { LuListTodo } from "react-icons/lu";
-import { BiSolidWalletAlt } from "react-icons/bi";
+import { FaUsers } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
 import { MdOutlineTableRows } from "react-icons/md";
 
 function SideBar() {
+
+    // Create array for all links
+    const links = [
+     { title: "Dashboard", path: "/", icon: <CiGrid41 className="w-6 h-6 font-bold" /> },
+     { title: "Profile", path: "/profile", icon: <CiUser className="w-6 h-6 font-bold" /> },
+     { title: "Tasks", path: "/tasks", icon: <LuListTodo className="w-6 h-6 font-bold" /> },
+     { title: "Users", path: "/users", icon: <FaUsers className="w-6 h-6 font-bold" /> },
+     { title: "Messages", path: "/messages", icon: <TiMessages className="w-6 h-6 font-bold" /> },
+     { title: "Tables", path: "/tables", icon: <MdOutlineTableRows className="w-6 h-6 font-bold" /> }
+   ];
+
   return (
     <div>
      <aside className='w-[15rem] dark:bg-[#24303F] pr-0 bg-primary hidden lg:flex transition-all z-20 fixed top-0 bottom-0 left-0 overflow-hidden h-[100vh]'>
@@ -24,12 +35,11 @@ function SideBar() {
         <div className="mt-16 w-[13rem]">
           <h4 className="text-secondary font-bold text-[0.9rem]">MENU</h4>
           <div className="flex child:text-[0.9rem] child:rounded-lg child:text-[#DEE4EE] child:font-medium child:w-full child:transition-all child:px-4 child:py-3 child-hover:bg-[#333A48] flex-col gap-2 mt-3">
-           <SideBarLink title="Dashboard" path="/" className={"flex items-center justify-start gap-3"} icon={<CiGrid41 className="w-6 h-6 font-bold"/>} />
-           <SideBarLink icon={<CiUser className="w-6 h-6 font-bold"/>} path="/profile" title="Profile" className={"flex items-center justify-start gap-3"}/>
-           <SideBarLink icon={<LuListTodo className="w-6 h-6 font-bold"/>} path="/tasks" className={"flex items-center justify-start gap-3"} title="Tasks"/>
-           <SideBarLink icon={<BiSolidWalletAlt className="w-6 h-6 font-bold"/>} title="Wallet" path="/wallet" className={"flex items-center justify-start gap-3"}/>
-           <SideBarLink className="flex items-center justify-start gap-3" path="/messages" title="Messages" icon={<TiMessages className="font-bold w-6 h-6" />}/>
-           <SideBarLink icon={<MdOutlineTableRows className="font-bold w-6 h-6"/>} path="/tables" title="Tables" className="flex items-center justify-start gap-3"/>
+            {
+              links.map(({title , path , icon} , index) => (
+                <SideBarLink key={index} title={title} path={path} className="flex items-center justify-start gap-3" icon={icon} />
+              ))
+            }
           </div>
          </div>
          <div className="px-3 hover:bg-red-500 hover:text-primary rounded-lg py-3 cursor-pointer transition-all pr-5 text-red-400 flex items-start gap-3 mt-10">
