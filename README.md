@@ -1,5 +1,5 @@
 # A new poject with React , Type Script 💻
-## Dashboard with redux toolkit , asyncThunl with redux-toolkit, ui frameworks (tailwind , shadcn , netui) , axios and ... 👌🔥
+## Dashboard with redux toolkit , asyncThunl with redux-toolkit, ui frameworks (tailwind , shadcn , nextui) , axios and ... 👌🔥
 ## Full responsive and beautiful ui
 
 ## An image of main page of this dashboard with beautiful ui
