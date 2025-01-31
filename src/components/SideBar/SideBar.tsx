@@ -5,7 +5,7 @@ import { CiGrid41 } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { LuListTodo } from "react-icons/lu";
 import { FaUsers } from "react-icons/fa";
-import { TiMessages } from "react-icons/ti";
+import { RiArticleLine } from "react-icons/ri";
 import { MdOutlineTableRows } from "react-icons/md";
 
 function SideBar() {
@@ -16,7 +16,7 @@ function SideBar() {
      { title: "Profile", path: "/profile", icon: <CiUser className="w-6 h-6 font-bold" /> },
      { title: "Tasks", path: "/tasks", icon: <LuListTodo className="w-6 h-6 font-bold" /> },
      { title: "Users", path: "/users", icon: <FaUsers className="w-6 h-6 font-bold" /> },
-     { title: "Messages", path: "/messages", icon: <TiMessages className="w-6 h-6 font-bold" /> },
+     { title: "Articles", path: "/articles", icon: <RiArticleLine className="w-6 h-6 font-bold" /> },
      { title: "Tables", path: "/tables", icon: <MdOutlineTableRows className="w-6 h-6 font-bold" /> }
    ];
 
