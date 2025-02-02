@@ -1,5 +1,5 @@
-import Header from "../Header/Header"
-import SideBar from "../SideBar/SideBar"
+import SideBar from "../shared/SideBar/SideBar"
+import Header from "../shared/Header/Header"
 import DashboardCard from "./DashboardCard/DashboardCard";
 import { IoEyeOutline } from "react-icons/io5";
 import { SlBasket } from "react-icons/sl";
