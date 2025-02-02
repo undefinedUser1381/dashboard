@@ -1,4 +1,4 @@
-import Src from "../../../assets/images/pexels-suzyhazelwood-1629236.jpg"
+import Src from "../../../assets/images/pexels-suzyhazelwood-1629236-min.jpg"
 import { MdDelete } from "react-icons/md";
 
 interface ArticleBox {
