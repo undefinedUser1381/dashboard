@@ -1,4 +1,4 @@
-import TitleLink from "@/components/TitleLink/TitleLink";
+import TitleLink from "../../shared/TitleLink/TitleLink";
 import {Button} from "@heroui/button";
 import { LuPlus } from "react-icons/lu";
 import { useDispatch } from "react-redux";
