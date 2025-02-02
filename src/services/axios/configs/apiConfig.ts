@@ -10,7 +10,6 @@ apiRequest.interceptors.request.use(
       config.headers.Accept = "application/json";
       return config;
     },
-  
     function (error) {
       return Promise.reject(error);
     }
