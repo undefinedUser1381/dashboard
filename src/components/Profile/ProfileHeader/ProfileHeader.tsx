@@ -1,4 +1,4 @@
-import TitleLink from "@/components/TitleLink/TitleLink";
+import TitleLink from "../../shared/TitleLink/TitleLink";
 
 function ProfileHeader() {
   return (
