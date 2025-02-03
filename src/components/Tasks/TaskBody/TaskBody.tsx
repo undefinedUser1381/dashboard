@@ -10,6 +10,8 @@ function TaskBody() {
   const todos = useSelector((state : RootState) => state.tasks.tasks)
   const loading = useSelector((state : RootState) => state.tasks.isLoad)
 
+  console.log(...todos);
+
   if(loading){
     return( 
      <div className="text-center mt-5 flex items-center justify-center">

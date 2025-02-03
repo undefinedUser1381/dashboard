@@ -1,6 +1,6 @@
 interface Task {
     id : string
-    isCompelete : string,
+    isComplete : string,
     title : string
 }
 

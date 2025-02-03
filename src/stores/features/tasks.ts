@@ -18,7 +18,7 @@ export const addTask = createAsyncThunk(
         return apiRequest.post("todos",{
             id : uuidv4(),
             title : value,
-            isComplete:false,
+            isComplete:"false",
         })
         .then(res => res.data)
     }
