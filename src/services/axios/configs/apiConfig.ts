@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const apiRequest = axios.create({
-    baseURL: 'https://back-dashboard-iota.vercel.app'
+    baseURL: 'https://back-dashboard-zeta.vercel.app/'
 });
 
 apiRequest.interceptors.request.use(
