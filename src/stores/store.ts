@@ -4,6 +4,7 @@ import themeReducer from "./features/theme"
 import taskReducer from "./features/taskmodal"
 import authReducer from "./features/auth"
 import tasksReducer from "./features/tasks"
+import userReducer from "./features/users"
 
 const store = configureStore({
     reducer : {
@@ -11,7 +12,8 @@ const store = configureStore({
         theme : themeReducer,
         taskModal : taskReducer,
         auth : authReducer,
-        tasks : tasksReducer
+        tasks : tasksReducer,
+        users : userReducer
     }
 })
 

@@ -4,23 +4,29 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { apiRequest } from "@/services/axios/configs/apiConfig";
 import { v4 as uuidv4 } from 'uuid';
 
+interface CompleteTask {
+    id : string,
+    isComplete : boolean
+    title : string
+}
+
 export const getTasks = createAsyncThunk(
     "tasks/getTasks",
     async (url: string) => {
-        return apiRequest.get(url)
-            .then(res => res.data)
+    const response = await apiRequest.get(url)
+    return response.data
     }
 )
 
 export const addTask = createAsyncThunk(
     "tasks/addTask",
     async (value : string) => {
-        return apiRequest.post("todos",{
+    const response = await apiRequest.post("todos",{
             id : uuidv4(),
             title : value,
-            isComplete:"false",
+            isComplete:false,
         })
-        .then(res => res.data)
+    return response.data
     }
 )
 
@@ -32,9 +38,21 @@ export const deleteTask = createAsyncThunk(
     }
 )
 
+export const doTask = createAsyncThunk(
+    "tasks/doTasks",
+    async ({id , isComplete , title} : CompleteTask) => {
+      const response = await apiRequest.put(`todos/${id}`,{
+        isComplete : isComplete,
+        title : title
+      })
+      return response.data
+    }
+)
+
 const initialState = {
     error: null,
     isLoad: false,
+    loadUpdate : false,
     tasks: [] as Task[]
 }
 
@@ -80,6 +98,23 @@ const tasksSlice = createSlice({
         })
         builder.addCase(deleteTask.rejected , (state,action) => {
             state.isLoad = false
+            state.error = action.error.message
+        })
+        builder.addCase(doTask.fulfilled , (state,action) => {
+            state.loadUpdate = false
+            state.error = null
+            const task = state.tasks.find((task) => task.id === action.payload.id)
+            console.log(action.payload);
+            if(task){
+                task.isComplete = action.payload.isComplete
+            }
+        })
+        builder.addCase(doTask.pending , (state,action) => {
+            state.loadUpdate = true
+            state.error = null
+        })
+        builder.addCase(doTask.rejected , (state,action) => {
+            state.loadUpdate = false
             state.error = action.error.message
         })
     },
