@@ -4,6 +4,7 @@ import UserBox from "./UserBox/UserBox";
 import UserAddForm from "./UsersAddForm/UserAddForm";
 
 function Users() {
+
   return (
     <ComponentLayout>
       <div className="px-[1rem] lg:px-[6rem] xl:px-[8rem] py-[2rem] xl:py-[3rem] w-full ml-auto mt-20 lg:w-[77%] xl:w-[83%]">
@@ -15,7 +16,7 @@ function Users() {
             <h3 className="text-[1.4rem] dark:text-white font-medium">
               All users
             </h3>
-            <UserBox />
+            <UserBox/>
           </div>
         </div>
       </div>
