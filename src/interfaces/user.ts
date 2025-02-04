@@ -1,7 +1,7 @@
 interface User {
     id : string,
     row : string
-    userName : string
+    name : string
     email : string
     phone : string
     wallet : string
