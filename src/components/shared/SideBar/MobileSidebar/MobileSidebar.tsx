@@ -1,4 +1,4 @@
-import sideBarLogo from "../../../../assets/images/logo-icon.svg";
+import sideBarLogo from "../../../../assets/images/sidebarlogo/logo.svg";
 import { useSelector , useDispatch} from "react-redux";
 import { logout } from "@/stores/features/auth";
 import { RootState , AppDispatch} from "@/stores/store";
