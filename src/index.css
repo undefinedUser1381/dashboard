@@ -39,6 +39,11 @@
   .active{
      @apply bg-[#333A48]
   }
+
+  .input_form{
+    @apply w-full font-medium p-2 rounded-lg transition-all border bg-gray-800 border-gray-500 focus:border-blue-500 outline-none text-white;
+  }
+
   :root {
     --radius:0.5rem;
   }
