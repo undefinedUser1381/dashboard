@@ -24,7 +24,7 @@ export default function AddForm({ children , title , onClose , onSubmit } : AddF
      },[])
 
   return (
-    <section className="fixed z-40 top-0 left-0 bottom-0 right-0 w-[100%] flex items-center justify-center bg-[rgba(0,0,0,0.5)]">
+    <section className="fixed transition-all z-40 top-0 left-0 bottom-0 right-0 w-[100%] flex items-center justify-center bg-[rgba(0,0,0,0.5)]">
      <form onSubmit={onSubmit} className="dark:bg-[#24303F] bg-white shadow-md rounded-lg w-[80%] md:w-[70%] p-5 flex flex-col items-start sm:w-[50%] justify-start gap-10 h-auto">
        <div className="flex w-full items-center justify-between">
         <h3 className="dark:text-white text-black font-medium">{title}</h3>
