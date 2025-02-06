@@ -29,7 +29,7 @@ const navigate = useNavigate();
 const [users , setUsers] = useState<Users[]>([]);
 
 useEffect(() => {
-    apiRequest.get("/users").then(res => res.data)
+    apiRequest.get("users").then(res => res.data)
    .then(data => setUsers(data))
 },[])
 
