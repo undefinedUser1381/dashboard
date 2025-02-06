@@ -13,7 +13,7 @@ import { AppDispatch, RootState } from "@/stores/store";
 import { useDispatch, useSelector } from "react-redux";
 import { Puff } from "react-loader-spinner";
 import { useEffect } from "react";
-import { getUsers } from "@/stores/features/users";
+import { deleteMember, getUsers } from "@/stores/features/users";
 
 function UserBox() {
   const loading = useSelector((state: RootState) => state.users.isLoading);
@@ -47,7 +47,7 @@ function UserBox() {
           No Members Exists
         </div>
       ) : (
-        <div className="border mt-2 overflow-hidden dark:border-gray-600 shadow-lg">
+        <div className="mt-2 overflow-hidden dark:border-gray-600 shadow-lg">
           <Table className="overflow-scroll font-medium lg:overflow-hidden border dark:border-gray-700">
             <TableHeader className="bg-white text-black dark:bg-[#24303F] dark:text-white">
               <TableRow className="font-Kalame text-[0.9rem] border-gray-300 dark:border-gray-600 *:p-4 lg:text-[1rem]">
@@ -96,7 +96,7 @@ function UserBox() {
                   </TableCell>
                   <TableCell className="text-left flex items-center justify-center gap-3 child:cursor-pointer">
                     <BsPencil className="text-yellow-500" />
-                    <RiDeleteBin6Line className="text-red-500" />
+                    <RiDeleteBin6Line onClick={() => dispatch(deleteMember(memebr.id))} className="text-red-500 cursor-pointer" />
                     <MdOutlineMoreHoriz className="text-blue-500" />
                   </TableCell>
                 </TableRow>
