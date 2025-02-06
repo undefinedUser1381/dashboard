@@ -109,4 +109,4 @@ function UserBox() {
   );
 }
 
-export default UserBox;
+export default UserBox
