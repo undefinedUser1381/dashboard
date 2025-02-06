@@ -1,6 +1,5 @@
 interface User {
     id : string,
-    row : string
     name : string
     email : string
     phone : string
