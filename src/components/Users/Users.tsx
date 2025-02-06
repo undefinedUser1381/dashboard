@@ -4,9 +4,11 @@ import UserBox from "./UserBox/UserBox";
 import { useForm } from "react-hook-form";
 import AddForm from "../shared/AddForm/AddForm";
 import { AddUser } from "@/interfaces/add-user"; 
+import { addUser } from "@/validation/add-user";
 import { SubmitHandler } from "react-hook-form";
 import { RiUserAddLine } from "react-icons/ri";
 import { useState } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 function Users() {
 
@@ -20,7 +22,9 @@ function Users() {
     setisOpenFormModal(true)
 }
 
-const { handleSubmit , register , formState : { errors } } = useForm()
+const { handleSubmit , register , formState : { errors } } = useForm({
+  resolver : yupResolver(addUser)
+})
 
 const submitUser : SubmitHandler<AddUser> = (data) => {
     console.log(data);
@@ -45,15 +49,15 @@ const submitUser : SubmitHandler<AddUser> = (data) => {
        {
          openFormModal && 
          <AddForm onClose={closeForm} onSubmit={handleSubmit(submitUser)} title="Add User Form">
-          <input type="text" name="name" {...register("name",{ minLength : { value : 3 , message : "Must be more than 3" } , maxLength : {value : 20 , message : "Must be less than 20"} , required : "This Filed Is Required"})} className="w-full font-medium p-2 rounded-lg transition-all border border-gray-500 focus:border-blue-500 outline-none text-white" placeholder="Name ..."/>
+          <input type="text" name="name" {...register("name")} className="w-full font-medium p-2 rounded-lg transition-all border border-gray-500 focus:border-blue-500 outline-none text-white" placeholder="Name ..."/>
           {errors.name && <span className="w-full bg-red-400 text-white font-medium rounded-md p-1">{errors.name.message}</span>}
-          <input type="text" name="email" {...register("email",{ minLength : { value : 3 , message : "Must be more than 3" } , maxLength : {value : 20 , message : "Must be less than 20"} , required : "This Filed Is Required"})} className="w-full font-medium p-2 rounded-lg transition-all border border-gray-500 focus:border-blue-500 outline-none text-white" placeholder="Email ..."/>
+          <input type="text" name="email" {...register("email")} className="w-full font-medium p-2 rounded-lg transition-all border border-gray-500 focus:border-blue-500 outline-none text-white" placeholder="Email ..."/>
           {errors.email && <span className="w-full bg-red-400 text-white font-medium rounded-md p-1">{errors.email.message}</span>}
-          <input type="text" name="phone" {...register("phone",{minLength : { value : 3 , message : "Must be more than 3" } , maxLength : {value : 20 , message : "Must be less than 20"} , required : "This Filed Is Required"})} className="w-full font-medium p-2 rounded-lg transition-all border border-gray-500 focus:border-blue-500 outline-none text-white" placeholder="Phone ..." />
+          <input type="text" name="phone" {...register("phone")} className="w-full font-medium p-2 rounded-lg transition-all border border-gray-500 focus:border-blue-500 outline-none text-white" placeholder="Phone ..." />
           {errors.phone && <span className="w-full bg-red-400 text-white font-medium rounded-md p-1">{errors.phone.message}</span>}
           <div className="flex flex-col gap-2 w-full">
            <label className="dark:text-white text-black font-medium text-[0.8rem]" htmlFor="">Choose Role</label>
-           <select name="role" {...register("role" , { required : "Required" })} className="w-[100%] border-gray-500 dark:text-white text-black border focus:border-blue-400 transition-all font-medium p-2" id="">
+           <select name="role" {...register("role")} className="w-[100%] border-gray-500 dark:text-white text-black border focus:border-blue-400 transition-all font-medium p-2" id="">
            <option value={"USER"}>User</option>
            <option value={"ADMIN"}>Admin</option>
           </select>
