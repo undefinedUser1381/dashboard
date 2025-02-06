@@ -4,6 +4,7 @@ import { User } from "@/interfaces/user";
 
 interface usersStates {
     isLoading : boolean,
+    isLoadPost : boolean
     usersData : User[],
     error : any
 }
@@ -11,16 +12,41 @@ interface usersStates {
 const initialState : usersStates = {
     isLoading : false,
     usersData : [],
+    isLoadPost : false,
     error : null
 }
 
 export const getUsers = createAsyncThunk(
-    "users/getUsers",
+    "members/getUsers",
     async (url : string) => {
         const response = await apiRequest.get(url);
         return response.data;
     }
 )
+
+export const postUser = createAsyncThunk(
+    "members/postUser",
+    async ({ name , email , phone , role , wallet , id , date } : User) => {
+      const response = await apiRequest.post("members",{
+        id ,
+        name ,
+        email ,
+        phone ,
+        role , 
+        wallet ,
+        date
+      });
+      return response.data;
+    }
+)
+
+export const deleteMember = createAsyncThunk(
+    "members/deleteUser",
+    async (id : string) => {
+      const response = await apiRequest.delete(`members/${id}`);
+      return response.data;
+    }
+) 
 
 const userSlice = createSlice({
     name : "users",
@@ -40,6 +66,32 @@ const userSlice = createSlice({
             state.isLoading = false
             state.error = action.error.message
          })
+         builder.addCase(postUser.fulfilled,(state,action) => {
+            state.usersData.push(action.payload)
+            state.isLoadPost = false,
+            state.error = null
+         })
+         builder.addCase(postUser.pending,(state,action) => {
+             state.isLoadPost = true;
+             state.error = null
+          })
+          builder.addCase(postUser.rejected,(state,action) => {
+             state.isLoadPost = false
+             state.error = action.error.message
+          })
+          builder.addCase(deleteMember.fulfilled,(state,action) => {
+            state.isLoadPost = false,
+            state.error = null
+            state.usersData = state.usersData.filter(member => member.id !== action.meta.arg)
+         })
+         builder.addCase(deleteMember.pending,(state,action) => {
+             state.isLoadPost = true;
+             state.error = null
+          })
+          builder.addCase(deleteMember.rejected,(state,action) => {
+             state.isLoadPost = false
+             state.error = action.error.message
+          })
     },    
 })
 
