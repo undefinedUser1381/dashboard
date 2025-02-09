@@ -4,17 +4,16 @@ import { useDispatch, useSelector } from "react-redux"
 import { AppDispatch, RootState } from "@/stores/store"
 import { Puff } from "react-loader-spinner"
 import { Alert } from "@heroui/alert"
-import { useState } from "react"
 import { filterOption } from "@/stores/features/tasks"
 
 function TaskBody() {
 
   const dispath : AppDispatch = useDispatch(); 
   const isOpenModal = useSelector((state : RootState) => state.taskModal.isOpenModal);
-  const todos = useSelector((state : RootState) => state.tasks.filteredTask);
+  const todos = useSelector((state : RootState) => state.tasks.tasks);
   const loading = useSelector((state : RootState) => state.tasks.isLoad);
   const loadUpdae = useSelector((state : RootState) => state.tasks.loadUpdate);
-  
+
   if(loading){
     return( 
      <div className="text-center mt-5 flex items-center justify-center">

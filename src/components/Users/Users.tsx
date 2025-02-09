@@ -41,6 +41,7 @@ const submitUser : SubmitHandler<User> = (data) => {
      const id = uuidv4()
      const wallet = "100,00"
      dispatch(postUser({ name , email , phone , role , wallet , id , date}))
+     closeForm();
 }
 
   return (
@@ -49,7 +50,7 @@ const submitUser : SubmitHandler<User> = (data) => {
        <div className="px-[1rem] lg:px-[6rem] xl:px-[8rem] py-[2rem] xl:py-[3rem] w-full ml-auto mt-20 lg:w-[77%] xl:w-[83%]">
          <TitleLink link="/" title="Users" />
          <div className="flex flex-col">
-          <div className="w-full p-4 mt-5 flex font-medium items-center justify-between bg-[#24303F]">
+          <div className="w-full p-4 mt-5 flex font-medium items-center justify-between shadow-md bg-white dark:bg-[#24303F]">
              <h4 className="dark:text-white text-black">Add User</h4>
              <button onClick={openForm} className="bg-blue-600 px-5 border-none outline-none py-2 text-white rounded-md cursor-pointer">Add User</button>
           </div>
@@ -73,7 +74,7 @@ const submitUser : SubmitHandler<User> = (data) => {
           {errors.phone && <span className="w-full bg-red-400 text-white font-medium rounded-md p-1">{errors.phone.message}</span>}
           <div className="flex flex-col gap-2 w-full">
            <label className="dark:text-white text-black font-medium text-[0.8rem]" htmlFor="">Choose Role</label>
-           <select name="role" {...register("role")} className="w-[100%] bg-gray-800 border-gray-500 dark:text-white text-black border focus:border-blue-400 transition-all font-medium p-2" id="">
+           <select name="role" {...register("role")} className="w-[100%] dark:bg-gray-800 border-gray-500 dark:text-white text-black border focus:border-blue-400 transition-all font-medium p-2" id="">
            <option value={"USER"}>User</option>
            <option value={"ADMIN"}>Admin</option>
           </select>
@@ -93,7 +94,7 @@ const submitUser : SubmitHandler<User> = (data) => {
            }
            </button>
          </div>
-          </AddForm>
+       </AddForm>
        }
      </ComponentLayout>
     </>

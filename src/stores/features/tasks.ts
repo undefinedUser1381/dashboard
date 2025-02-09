@@ -66,21 +66,21 @@ const tasksSlice = createSlice({
         switch(filterOption){
             case "All" : {
                 console.log("all");
-                state.filteredTask = state.tasks
+                state.tasks = [...state.filteredTask]
                 break ;
             };
             case "Completed" : {
                 console.log("Completed");
-                state.filteredTask = state.tasks.filter(task => task.isComplete)
+                state.tasks = state.filteredTask.filter(task => task.isComplete)
                 break ;
             };
             case "Incompleted" : {
                 console.log("Incomplete");
-                state.filteredTask = state.tasks.filter(task => !task.isComplete)
+                state.tasks = state.filteredTask.filter(task => !task.isComplete)
                 break ;
             };
             default : {
-                state.filteredTask = state.tasks
+                state.tasks = [...state.filteredTask]
             }
         }
        }
@@ -103,6 +103,7 @@ const tasksSlice = createSlice({
         })
         builder.addCase(addTask.fulfilled , (state , action) => {
             state.tasks.push(action.payload)
+            state.filteredTask.push(action.payload)
             state.isLoad = false
             state.error = null 
         })
@@ -118,6 +119,7 @@ const tasksSlice = createSlice({
             state.isLoad = false
             state.error = null
             state.tasks = state.tasks.filter(task => task.id !== action.meta.arg)
+            state.filteredTask = state.filteredTask.filter(task => task.id !== action.meta.arg)
         })
         builder.addCase(deleteTask.pending , (state,action) => {
             state.isLoad = true
@@ -130,10 +132,12 @@ const tasksSlice = createSlice({
         builder.addCase(doTask.fulfilled , (state,action) => {
             state.loadUpdate = false
             state.error = null
-            const task = state.filteredTask.find((task) => task.id === action.payload.id)
+            const task = state.tasks.find((task) => task.id === action.payload.id)
+            const taskFilter = state.filteredTask.find((task) => task.id === action.payload.id)
             console.log(action.payload);
-            if(task){
+            if(task && taskFilter){
                 task.isComplete = action.payload.isComplete
+                taskFilter.isComplete = action.payload.isComplete
             }
         })
         builder.addCase(doTask.pending , (state,action) => {
