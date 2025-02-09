@@ -68,11 +68,11 @@ const submitUser : SubmitHandler<loginInterface> = (data) => {
           <h3 className="text-center pt-12 dark:text-white font-bold text-[2rem]">{t("Sign In")}</h3>
           <div className="flex flex-col w-full gap-8 px-3 mt-12 items-center">
           <div className="flex flex-col items-center gap-5 w-[80%]">
-           <Input {...register("userName")} label="Username" size="sm" className="shadow-lg rounded-lg" type="username" />
+           <Input {...register("userName")} label="Username" size="sm" placeholder="Seyed Erfan Ghexi" className="shadow-lg rounded-lg"  type="username" />
            {errors.userName && <span className="text-white bg-red-500 w-full px-2 py-1 rounded-lg">{errors.userName.message}</span>}
           </div>
           <div className="flex flex-col items-center gap-5 w-[80%]">
-           <Input {...register("email")} label="Email" size="sm" className="shadow-lg rounded-lg" type="email" />
+           <Input {...register("email")} label="Email" size="sm" className="shadow-lg rounded-lg" placeholder="erfanghezi5050@gmail.com" type="email" />
            {errors.email && <span className="text-white bg-red-500 w-full px-2 py-1 rounded-lg">{errors.email.message}</span>}
           </div>
            <Button type="submit" className="w-[10rem] text-white p-7 bg-purple-500 mt-6 shadow-lg font-bold shadow-purple-500 rounded-[5rem]">SIGN IN</Button>
