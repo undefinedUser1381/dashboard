@@ -53,18 +53,45 @@ const initialState = {
     error: null,
     isLoad: false,
     loadUpdate : false,
-    tasks: [] as Task[]
+    tasks: [] as Task[],
+    filteredTask : [] as Task[]
 }
 
 const tasksSlice = createSlice({
     name: "tasks",
     initialState,
-    reducers: {},
+    reducers: {
+       filterOption : (state , action) => {
+        const filterOption = action.payload
+        switch(filterOption){
+            case "All" : {
+                console.log("all");
+                state.filteredTask = state.tasks
+                break ;
+            };
+            case "Completed" : {
+                console.log("Completed");
+                state.filteredTask = state.tasks.filter(task => task.isComplete)
+                break ;
+            };
+            case "Incompleted" : {
+                console.log("Incomplete");
+                state.filteredTask = state.tasks.filter(task => !task.isComplete)
+                break ;
+            };
+            default : {
+                state.filteredTask = state.tasks
+            }
+        }
+       }
+    },
     extraReducers(builder) {
         builder.addCase(getTasks.fulfilled, (state, action) => {
             state.isLoad = false
             state.error = null
             state.tasks = action.payload
+            // Set items to filteredTask for initializing
+            state.filteredTask = action.payload
         })
         builder.addCase(getTasks.pending, (state, action) => {
             state.isLoad = true
@@ -120,4 +147,6 @@ const tasksSlice = createSlice({
     },
 })
 
+export const { filterOption } = tasksSlice.actions
 export default tasksSlice.reducer
+
