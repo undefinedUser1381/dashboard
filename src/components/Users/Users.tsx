@@ -6,7 +6,7 @@ import AddForm from "../shared/AddForm/AddForm";
 import { addUser } from "@/validation/add-user";
 import { SubmitHandler } from "react-hook-form";
 import { RiUserAddLine } from "react-icons/ri";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AppDispatch } from "@/stores/store";

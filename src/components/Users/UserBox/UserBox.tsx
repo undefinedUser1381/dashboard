@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {Alert} from "@heroui/alert";
 import { AppDispatch, RootState } from "@/stores/store";
 import { useDispatch, useSelector } from "react-redux";
 import { Puff } from "react-loader-spinner";
@@ -31,7 +32,7 @@ function UserBox() {
           visible={true}
           height="40"
           width="40"
-          color="#4fa94d"
+          color="#3B82F6"
           ariaLabel="puff-loading"
           wrapperStyle={{}}
           wrapperClass=""
@@ -43,9 +44,7 @@ function UserBox() {
   return (
     <>
       {!members.length ? (
-        <div className="bg-red-500 p-3 text-white text-center">
-          No Members Exists
-        </div>
+       <Alert color="danger" title="No members exit !"/>
       ) : (
         <div className="mt-2 overflow-hidden dark:border-gray-600 shadow-lg">
           <Table className="overflow-scroll font-medium lg:overflow-hidden border dark:border-gray-700">
