@@ -130,7 +130,7 @@ const tasksSlice = createSlice({
         builder.addCase(doTask.fulfilled , (state,action) => {
             state.loadUpdate = false
             state.error = null
-            const task = state.tasks.find((task) => task.id === action.payload.id)
+            const task = state.filteredTask.find((task) => task.id === action.payload.id)
             console.log(action.payload);
             if(task){
                 task.isComplete = action.payload.isComplete
