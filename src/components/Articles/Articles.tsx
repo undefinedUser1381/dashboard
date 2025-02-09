@@ -37,6 +37,7 @@ function Articles() {
 
 const submitArtilce : SubmitHandler<ArticleType> = (articleData) => {
   dispath(postArticles({...articleData}))
+  closeForm();
 }
 
 const { handleSubmit , register , formState : { errors } } = useForm({
@@ -49,7 +50,7 @@ const { handleSubmit , register , formState : { errors } } = useForm({
       <div className="px-[1rem] lg:px-[6rem] xl:px-[8rem] py-[2rem] xl:py-[3rem] w-full ml-auto mt-20 lg:w-[77%] xl:w-[83%]">
         <TitleLink title="Articles" link="/" />
         <div className="mt-8">
-         <div className="w-full mb-10 p-4 mt-5 flex font-medium items-center justify-between bg-[#24303F]">
+         <div className="w-full mb-10 p-4 mt-5 flex font-medium items-center justify-between bg-white shadow-md dark:bg-[#24303F]">
              <h4 className="dark:text-white text-black">Add Article</h4>
              <button onClick={openForm} className="bg-blue-600 px-5 border-none outline-none py-2 text-white rounded-md cursor-pointer">Add Article</button>
           </div>
@@ -92,7 +93,7 @@ const { handleSubmit , register , formState : { errors } } = useForm({
           {errors.author && <span className="w-full bg-red-400 text-white font-medium rounded-md p-1">{errors.author.message}</span>}
           <div className="flex flex-col gap-2 w-full">
            <label className="dark:text-white text-black font-medium text-[0.8rem]" htmlFor="">Select Category</label>
-           <select {...register("category")} name="category" className="w-[100%] bg-gray-800 border-gray-500 dark:text-white text-black border focus:border-blue-400 transition-all font-medium p-2" id="">
+           <select {...register("category")} name="category" className="w-[100%] bg-white dark:bg-gray-800 border-gray-500 dark:text-white text-black border focus:border-blue-400 transition-all font-medium p-2" id="">
            <option value={"Front-End"}>Front-End</option>
            <option value={"Back-End"}>Back-End</option>
            <option value={"Programming"}>Programming</option>
